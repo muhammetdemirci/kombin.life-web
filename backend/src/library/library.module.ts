@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 
-import { DateScalar } from './scalars/date.scalar';
+import { RedisService } from './services/redis.service';
 
 @Module({
   imports: [],
-  providers: [DateScalar],
-  exports: [DateScalar],
+  providers: [RedisService],
+  exports: [RedisService],
   controllers: [],
 })
 export class LibraryModule {}
