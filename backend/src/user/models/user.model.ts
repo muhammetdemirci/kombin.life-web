@@ -8,11 +8,11 @@ export class UserModel {
   @Field(() => ID)
   id!: string;
 
-  @Field(() => UserRole)
-  role!: UserRole;
-
   @Field(() => String)
   email!: string;
+
+  @Field(() => UserRole)
+  role!: UserRole;
 
   @Field({ nullable: true })
   firstName?: string;
@@ -20,11 +20,11 @@ export class UserModel {
   @Field({ nullable: true })
   lastName?: string;
 
-  @Field(() => Date, { nullable: true })
-  birthday?: Date;
-
   @Field(() => UserGender, { nullable: true })
   gender?: UserGender;
+
+  @Field(() => Date, { nullable: true })
+  birthday?: Date;
 
   @Field(() => String, { nullable: true })
   timezoneName?: string;
