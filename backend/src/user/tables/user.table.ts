@@ -1,7 +1,8 @@
 import { Model, RelationMappings } from 'objection';
 
-import { UserGender } from '../enums/user-gender.enum';
-import { UserRole } from '../enums/user-role.enum';
+import { AvatarTypeEnum } from '../enums/avatar-type.enum';
+import { UserGenderEnum } from '../enums/user-gender.enum';
+import { UserRoleEnum } from '../enums/user-role.enum';
 import { FcmRegistrationTokenTable } from './fcm-registration-token.table';
 
 export class UserTable extends Model {
@@ -11,11 +12,24 @@ export class UserTable extends Model {
   firebaseUID!: string;
 
   email!: string;
-  role!: UserRole;
+  handle!: string;
+  role!: UserRoleEnum;
+
   firstName!: string;
   lastName!: string;
-  gender!: UserGender;
+  description?: string;
+  gender!: UserGenderEnum;
   birthday?: Date;
+
+  avatarType!: AvatarTypeEnum;
+  avatar?: string;
+
+  // social media handles
+  instagram: string;
+  twitter: string;
+  tiktok: string;
+  youtube: string;
+
   timezoneName!: string;
   spokenLanguages!: string[];
   createdAt!: Date;
