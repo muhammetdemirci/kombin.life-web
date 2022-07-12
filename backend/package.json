@@ -34,6 +34,7 @@
     "src/**/*.+(js|json|css|md|ts)": "npm run format"
   },
   "dependencies": {
+    "@google-cloud/storage": "^6.2.0",
     "@hapi/joi": "^17.1.1",
     "@nestjs/bull": "^0.4.1",
     "@nestjs/common": "8.0.6",
@@ -55,6 +56,8 @@
     "apollo-server-errors": "^3.0.1",
     "apollo-server-express": "^2.25.2",
     "apollo-upload-server": "^7.1.0",
+    "aws-sdk": "^2.968.0",
+    "cloudinary": "^1.26.3",
     "date-fns": "^2.23.0",
     "date-fns-timezone": "^0.1.4",
     "date-fns-tz": "^1.1.6",
@@ -75,7 +78,8 @@
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.1.8",

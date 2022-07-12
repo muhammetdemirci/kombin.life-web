@@ -1,26 +1,27 @@
 import { join } from 'path';
 
 import { BullModule } from '@nestjs/bull';
-import Bull from 'bull';
 import { MiddlewareConsumer, Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { APP_PIPE } from '@nestjs/core';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ScheduleModule } from '@nestjs/schedule';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { ApolloServerPluginUsageReportingDisabled } from 'apollo-server-core/dist/plugin/usageReporting';
+import Bull from 'bull';
 
 import { AppController } from './app.controller';
-import { configValidation } from './library/utils/config-validation';
-import { OrmModule } from './database/orm/orm.module';
+import { AppService } from './app.service';
 import { Client } from './database/orm/enums/client.enum';
-import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloServerPluginUsageReportingDisabled } from 'apollo-server-core/dist/plugin/usageReporting';
+import { OrmModule } from './database/orm/orm.module';
+import { LibraryModule } from './library/library.module';
 import { mapGraphqlFormatError } from './library/mappers/graphql-format-error.mapper';
 import { RedirectSslMiddleware } from './library/middlewares/redirect-ssl.middleware';
-import { ScheduleModule } from '@nestjs/schedule';
-import { LibraryModule } from './library/library.module';
-import { RedisService } from './library/services/redis.service';
-import { APP_PIPE } from '@nestjs/core';
 import { ComplexityPlugin } from './library/plugins/complexity.plugin';
-import { AppService } from './app.service';
+import { RedisService } from './library/services/redis.service';
+import { configValidation } from './library/utils/config-validation';
 import { UserModule } from './user/user.module';
+import { StorageModule } from './storage/storage.module';
 
 @Module({
   imports: [
@@ -101,6 +102,7 @@ import { UserModule } from './user/user.module';
       },
     }),
     UserModule,
+    StorageModule,
   ],
   controllers: [AppController],
   providers: [
